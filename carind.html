@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>afeganiston</title>
+    <style>
+     body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        .container {
+            position: relative;
+            text-align: center;
+            color: white;
+            margin-bottom: 20px;
+        }
+        .imagem {
+            width: 100%;
+            max-width: 600px;
+            height: auto;
+        }
+        .texto {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 24px;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .input-container {
+            margin-bottom: 20px;
+        }
+        input[type="text"] {
+            padding: 10px;
+            font-size: 16px;
+            width: 300px;
+            border: 1px solid #016cf7;
+            border-radius: 5px;
+        }
+        input[type="file"] {
+            margin-bottom: 10px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .share-links a {
+            margin: 0 10px;
+            text-decoration: none;
+            color: #d6d6d6;
+        }
+        .share-links a:hover {
+            text-decoration: underline;
+        }
+    </style>
+    <script>
+        function atualizarTexto() {
+            var input = document.getElementById("mensagemInput").value;
+            document.getElementById("texto").innerText = input;
+        }
+        function carregarImagem(event) {
+            var reader = new FileReader();
+            reader.onload = function(){
+                var output = document.getElementById('imagem');
+                output.src = reader.result;
+            };
+            reader.readAsDataURL(event.target.files[0]);
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <img src="bemtivi/mmmmmmmmmmmmmmm.jpg" alt="Imagem" class="imagem">
+        <div id="texto" class="texto">afeganiston</div>
+    </div>
+    <div>
+        <input type="text" id="mensagemInput" placeholder="Digite sua mensagem aqui">
+        <div class="input-container">
+            <input type="file" accept="image/*" onchange="carregarImagem(event)">
+        <button onclick="atualizarTexto()">Atualizar Mensagem</button>
+    </div>
+    <div>
+        <a href="https://twitter.com/intent/tweet?text=Sua%20mensagem%20aqui" target="_blank">Compartilhar no Twitter</a>
+        <a href="https://mail.google.com/mail/u/0/#inbox?compose=new" target="_blank">Enviar por Email</a>
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https://seusite.com" target="_blank">Compartilhar no Facebook</a>
+    </div>
+</body>
+</html>
